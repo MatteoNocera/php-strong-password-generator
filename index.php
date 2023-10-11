@@ -1,6 +1,10 @@
 <?php
 
 include __DIR__ . '/function.php';
+include __DIR__ . '/server.php';
+
+session_start();
+
 
 ?>
 
@@ -19,26 +23,13 @@ include __DIR__ . '/function.php';
 
 <body>
 
-    <div class="main bg-dark">
+    <div style="height: 100vh;" class="main bg-dark">
         <div class="container">
             <h1 class="text-secondary text-center py-4">Strong Password Generator</h1>
             <h2 class="text-white text-center mb-4">Genera una password sicura</h2>
 
-            <?php
-            if ($password_length != null and $password_length >= 6) :
-                echo '<div class="alert alert-success" role="alert">
-
-                        <p>La tua nuova password è <strong>' .  random_password($password_length)  . '</strong></p>
-
-                    </div>';
-            elseif ($password_length != null and $password_length < 6) :
-                echo '<div class="alert alert-danger" role="alert">
-
-                        <p>Seleziona un minimo di 6 caratteri</p>
-
-                    </div>';
-            endif; ?>
-
+            <?= $alert ?>
+            <!-- Inserisco la logica di function.php -->
 
             <div class="card bg-white py-5 px-3">
                 <form action="" method="GET" class="d-flex">
